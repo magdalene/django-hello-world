@@ -16,7 +16,7 @@ RUN set -ex && \
     rm -rf /root/.cache/
 COPY . /code
 
-# This is 😱 but this repo is just for testing so.... okay I guess???
+# This is only used for build purposes (real secret key is in a secret loaded at runtime)
 ENV SECRET_KEY "pSuEJRgCjlg0MzpTJsF2KtGjJWa1ofpNwWGmQTv2gY3QN0a1q0"
 RUN python manage.py collectstatic --noinput
 

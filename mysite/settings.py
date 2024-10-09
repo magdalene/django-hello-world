@@ -21,7 +21,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vuri3cmicsje6&$!ak11_05s$%0htcj&rhqj29m6ndu*o@g-jq'
+SECRET_KEY_LOCAL = 'django-insecure-vuri3cmicsje6&$!ak11_05s$%0htcj&rhqj29m6ndu*o@g-jq'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -31,6 +32,7 @@ IS_FLY_APP = "FLY_APP_NAME" in os.environ
 # SECURITY WARNING: don't run with debug turned on in production!
 if not IS_FLY_APP:
     DEBUG = True
+    SECRET_KEY = SECRET_KEY_LOCAL
 
 ALLOWED_HOSTS = [".localhost", "127.0.0.1", "[::1]", ".fly.dev"]
 
